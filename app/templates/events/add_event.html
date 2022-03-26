@@ -5,39 +5,47 @@
         <h1>Add Event</h1>
         <form action="" method="POST" novalidate>
             {{ form.hidden_tag() }}
-            <p>Name {{ form.title() }}</p>
+            <p>Name </p>
+            {{ form.title() }}
             {% for error in form.title.errors %}
                 <span class="error">{{ error }}</span>
             {% endfor %}
 
-            <p>Organizer {{ form.organizer }}</p>
+            <p>Organizer </p>
+            {{ form.organizer }}
             {% for error in form.organizer.errors %}
                 <span class="error">{{ error }}</span>
             {% endfor %}
 
-            <p>Event type {{ form.event_type }}</p>
+            <p>Event type</p>
+            {{ form.event_type }}
             {% for error in form.event_type.errors %}
                 <span class="error">{{ error }}</span>
             {% endfor %}
 
-            <p>Description {{ form.description() }}</p>
+            <p>Description</p>
+            {{ form.description() }}
             {% for error in form.description.errors %}
                 <span class="error">{{ error }}</span>
             {% endfor %}
 
             <p>{{ form.is_virtual() }} Virtual</p>
-            <p>Location {{ form.location() }}</p>
+            <p>Location</p>
+            {{ form.location() }}
 
-            <p>Link to website {{ form.website_link }}</p>
+            <p>Link to website</p>
+            {{ form.website_link }}
             {% for error in form.website_link.errors %}
                 <span class="error">{{ error }}</span>
             {% endfor %}
 
-            <p>Link to register {{ form.register_link }}</p>
+            <p>Link to registration</p>
+            {{ form.register_link }}
             {% for error in form.register_link.errors %}
                 <span class="error">{{ error }}</span>
             {% endfor %}
-            <p>Event date {{ form.date() }}</p>
+            <p>Event date</p>
+            {{ form.date() }}
             {% for error in form.date.errors %}
                 <span class="error">{{ error }}</span>
             {% endfor %}

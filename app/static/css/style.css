@@ -5,7 +5,7 @@
 }
 
 :root {
-    --margin-side: 40px;
+    --margin-side: 60px;
 }
 
 .error {
@@ -37,6 +37,43 @@
     margin: 40px var(--margin-side);
 }
 
+.events {
+    margin-top: 30px;
+}
+
 .event-container {
-    background-color: grey;
+    background-color: #A5D4F6;
+    padding: 15px 25px;
+    border-radius: 3px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.event-right {
+    display: flex;
+    justify-content: space-between;
+    width: 30vw;
+}
+
+.search {
+    width: 50vw;
+    padding: 5px 10px;
+}
+
+.nav-button, form input[type=submit] {
+    padding: 5px 10px;
+}
+
+form p, form input[type=submit] {
+    margin-top: 10px;
+    margin-bottom: 2px;
+}
+
+form input[type=text], form input[type=date], form textarea {
+    width: 40vw;
+    padding: 5px 10px;
+}
+
+form textarea {
+    height: 50px;
 }
