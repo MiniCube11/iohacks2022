@@ -1,4 +1,4 @@
-from flask import Blueprint, redirect, url_for, session, flash
+from flask import Blueprint, redirect, url_for, session, flash, render_template
 from flask_login import current_user, login_user, logout_user
 from werkzeug.urls import url_parse
 
@@ -13,7 +13,7 @@ bp = Blueprint('auth', __name__)
 def login():
     if current_user.is_authenticated:
         return redirect(url_for('main.index'))
-    return 'login'
+    return render_template('auth/login.html')
 
 
 @bp.route('/auth/google')
