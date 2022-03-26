@@ -12,4 +12,9 @@ def index():
 @bp.route('/events')
 def events():
     _events = Event.query.all()
-    return render_template('main/events.html', events=_events)
+
+    def format_date(date):
+        months = ['', "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+        return f"{months[date.month]} {date.day}"
+
+    return render_template('main/events.html', events=_events, format_date=format_date)

@@ -11,4 +11,8 @@ class AddEventForm(FlaskForm):
     location = StringField('Location')
     website_link = StringField('Link to website', validators=[DataRequired()])
     register_link = StringField('Link to register', validators=[DataRequired()])
+    organizer = StringField('Organizer', validators=[DataRequired()])
+    event_type = StringField('Event type', validators=[DataRequired()])
+    required1 = BooleanField('', validators=[DataRequired()])
+    required2 = BooleanField('', validators=[DataRequired()])
     submit = SubmitField('Create Event')

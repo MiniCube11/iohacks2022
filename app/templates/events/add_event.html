@@ -1,36 +1,58 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Create Event</h1>
-    <form action="" method="POST" novalidate>
-        {{ form.hidden_tag() }}
-        <p>Name {{ form.title() }}</p>
-        {% for error in form.title.errors %}
-            <span class="error">{{ error }}</span>
-        {% endfor %}
+    <div class="main">
+        <h1>Add Event</h1>
+        <form action="" method="POST" novalidate>
+            {{ form.hidden_tag() }}
+            <p>Name {{ form.title() }}</p>
+            {% for error in form.title.errors %}
+                <span class="error">{{ error }}</span>
+            {% endfor %}
 
-        <p>Description {{ form.description() }}</p>
-        {% for error in form.description.errors %}
-            <span class="error">{{ error }}</span>
-        {% endfor %}
+            <p>Organizer {{ form.organizer }}</p>
+            {% for error in form.organizer.errors %}
+                <span class="error">{{ error }}</span>
+            {% endfor %}
 
-        <p>{{ form.is_virtual() }} Virtual</p>
-        <p>Location {{ form.location() }}</p>
+            <p>Event type {{ form.event_type }}</p>
+            {% for error in form.event_type.errors %}
+                <span class="error">{{ error }}</span>
+            {% endfor %}
 
-        <p>Link to website {{ form.website_link }}</p>
-        {% for error in form.website_link.errors %}
-            <span class="error">{{ error }}</span>
-        {% endfor %}
+            <p>Description {{ form.description() }}</p>
+            {% for error in form.description.errors %}
+                <span class="error">{{ error }}</span>
+            {% endfor %}
 
-        <p>Link to register {{ form.register_link }}</p>
-        {% for error in form.register_link.errors %}
-            <span class="error">{{ error }}</span>
-        {% endfor %}
-        <p>Event date {{ form.date() }}</p>
-        {% for error in form.date.errors %}
-            <span class="error">{{ error }}</span>
-        {% endfor %}
-        {{ form.submit() }}
-    </form>
+            <p>{{ form.is_virtual() }} Virtual</p>
+            <p>Location {{ form.location() }}</p>
+
+            <p>Link to website {{ form.website_link }}</p>
+            {% for error in form.website_link.errors %}
+                <span class="error">{{ error }}</span>
+            {% endfor %}
+
+            <p>Link to register {{ form.register_link }}</p>
+            {% for error in form.register_link.errors %}
+                <span class="error">{{ error }}</span>
+            {% endfor %}
+            <p>Event date {{ form.date() }}</p>
+            {% for error in form.date.errors %}
+                <span class="error">{{ error }}</span>
+            {% endfor %}
+
+            <p>{{ form.required1() }} I understand that by submitting to this site, this event will have to be approved before getting seen by public.</p>
+            {% for error in form.required1.errors %}
+                <span class="error">{{ error }}</span>
+            {% endfor %}
+
+            <p>{{ form.required2() }} The STEM event which I am submitting is directed towards females and non-binary people.</p>
+            {% for error in form.required2.errors %}
+                <span class="error">{{ error }}</span>
+            {% endfor %}
+            {{ form.submit() }}
+        </form>
+    </div>
 {% endblock %}
 

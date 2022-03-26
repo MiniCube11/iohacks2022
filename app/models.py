@@ -25,3 +25,5 @@ class Event(db.Model):
     date = db.Column(db.DateTime, index=True)
     location = db.Column(db.String(300), index=True)
     is_virtual = db.Column(db.Boolean, index=True)
+    event_type = db.Column(db.String(64), index=True)
+    organizer = db.Column(db.String(64), index=True)

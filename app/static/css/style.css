@@ -36,3 +36,7 @@
 .main {
     margin: 40px var(--margin-side);
 }
+
+.event-container {
+    background-color: grey;
+}

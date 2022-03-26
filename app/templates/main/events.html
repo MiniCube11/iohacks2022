@@ -2,10 +2,13 @@
 
 {% block content %}
 <div class="main">
+    <a href="{{ url_for('events.add_event') }}">Add Event</a>
     {% for event in events %}
     <div class="event-container">
         {{ event.title }}
-        {{ event.date }}
+        {{ event.organizer }}
+        {{ format_date(event.date) }}
+        {{ event.event_type }}
     </div>
     {% endfor %}
 </div>
