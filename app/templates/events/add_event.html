@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Create Event</h1>
+    <form action="" method="POST" novalidate>
+        {{ form.hidden_tag() }}
+        <p>Name {{ form.title() }}</p>
+        {% for error in form.title.errors %}
+            <span class="error">{{ error }}</span>
+        {% endfor %}
+
+        <p>Description {{ form.description() }}</p>
+        {% for error in form.description.errors %}
+            <span class="error">{{ error }}</span>
+        {% endfor %}
+
+        <p>{{ form.is_virtual() }} Virtual</p>
+        <p>Location {{ form.location() }}</p>
+
+        <p>Link to website {{ form.website_link }}</p>
+        {% for error in form.website_link.errors %}
+            <span class="error">{{ error }}</span>
+        {% endfor %}
+
+        <p>Link to register {{ form.register_link }}</p>
+        {% for error in form.register_link.errors %}
+            <span class="error">{{ error }}</span>
+        {% endfor %}
+        <p>Event date {{ form.date() }}</p>
+        {% for error in form.date.errors %}
+            <span class="error">{{ error }}</span>
+        {% endfor %}
+        {{ form.submit() }}
+    </form>
+{% endblock %}
+

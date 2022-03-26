@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+:root {
+    --margin-side: 40px;
+}
+
+.error {
+    color: red;
+}
+
+.top {
+    display: flex;
+    background-color: #F17878;
+    padding: 20px calc(var(--margin-side) - 10px);
+    justify-content: space-between;
+}
+
+.top .left {
+    display: flex;
+}
+
+.top .right {
+    display: flex;
+}
+
+.top a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.main {
+    margin: 40px var(--margin-side);
+}
