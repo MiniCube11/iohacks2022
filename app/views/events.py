@@ -28,3 +28,14 @@ def add_event():
         flash("Event created")
         return redirect(url_for('main.events'))
     return render_template('events/add_event.html', form=form)
+
+
+@bp.route('/<_id>/view')
+def event_detail(_id):
+    event = Event.query.get_or_404(_id)
+
+    def format_date(date):
+        months = ['', "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+        return f"{months[date.month]} {date.day}, {date.year}"
+
+    return render_template('events/event_detail.html', event=event, format_date=format_date)

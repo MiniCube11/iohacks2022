@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="main">
+        <h2>{{ event.title }}</h2>
+        <div class="event-details">
+            <p>Hosted by {{ event.organizer }}</p>
+            <p>Date: {{ format_date(event.date )}}</p>
+            <p>{{ event.event_type }}</p>
+            <p>{% if event.is_virtual %}Online{% else %}{{ event.location }}{% endif %}</p>
+
+        </div>
+        <div class="event-links">
+            <a href="{{ event.website_link }}" target="_blank" rel="noopener noreferrer">More Info</a>
+            <a href="{{ event.register_link }}" target="_blank" rel="noopener noreferrer">Register</a>
+        </div>
+        <p>{{ event.description }}</p>
+    </div>
+{% endblock %}
+
