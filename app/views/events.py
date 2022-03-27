@@ -1,13 +1,14 @@
 from flask import Blueprint, render_template, flash, url_for, redirect, request
+from flask_login import login_required
 from app import db
 from app.forms.events import AddEventForm
 from app.models import Event
-from datetime import datetime
 
 bp = Blueprint('events', __name__)
 
 
 @bp.route('/add', methods=['GET', 'POST'])
+@login_required
 def add_event():
     form = AddEventForm(request.form)
     print(form.errors, request.method == "POST", form.validate_on_submit())

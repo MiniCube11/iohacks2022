@@ -4,10 +4,10 @@
     <div class="main">
         <h2>{{ event.title }}</h2>
         <div class="event-details">
-            <p>Hosted by {{ event.organizer }}</p>
-            <p>Date: {{ format_date(event.date )}}</p>
-            <p>{{ event.event_type }}</p>
-            <p>{% if event.is_virtual %}Online{% else %}{{ event.location }}{% endif %}</p>
+            <p>🏫 Hosted by {{ event.organizer }}</p>
+            <p>📅 {{ format_date(event.date )}}</p>
+            <p>🎫 {{ event.event_type }}</p>
+            <p>🌎 {% if event.is_virtual %}Online{% else %}{{ event.location }}{% endif %}</p>
 
         </div>
         <div class="event-links">

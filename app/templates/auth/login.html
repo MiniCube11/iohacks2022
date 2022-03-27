@@ -3,13 +3,8 @@
 {% block title %}Log In - Notes{% endblock %}
 
 {% block content %}
-<div class="login-page">
-    <div class="login-container">
-        <h3>Log In</h3>
-        <a id="login-with-google" href="{{ url_for('auth.authorize') }}">
-            <img src="{{ url_for('static', filename='img/google/google_logo.svg') }}">
-            <span>Sign in with Google</span>
-        </a>
-    </div>
+<div class="main center">
+    <h2>Log In</h2>
+    <a class="login-google" href="{{ url_for('auth.authorize') }}">Sign in with Google</a>
 </div>
 {% endblock %}
