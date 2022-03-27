@@ -1,17 +1,18 @@
 from flask import Blueprint, render_template, flash, url_for, redirect, request
-from flask_login import login_required
-from app import db
+from flask_login import current_user
+from app import app, db, mail, login
 from app.forms.events import AddEventForm
 from app.models import Event
+from flask_mailing import Message
 
 bp = Blueprint('events', __name__)
 
 
 @bp.route('/add', methods=['GET', 'POST'])
-@login_required
-def add_event():
+async def add_event():
+    if not current_user.is_authenticated:
+        return login.unauthorized()
     form = AddEventForm(request.form)
-    print(form.errors, request.method == "POST", form.validate_on_submit())
     if request.method == "POST" and form.validate_on_submit():
         event = Event(
             title=form.title.data,
@@ -26,8 +27,12 @@ def add_event():
         )
         db.session.add(event)
         db.session.commit()
+
+        message = Message(subject="testemail", recipients=[app.config["MAIL_USERNAME"]], body="body")
+        await mail.send_message(message)
+
         flash("Event created")
-        return redirect(url_for('main.events'))
+        return redirect(url_for('main.index'))
     return render_template('events/add_event.html', form=form)
 
 
