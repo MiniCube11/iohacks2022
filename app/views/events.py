@@ -28,7 +28,21 @@ async def add_event():
         db.session.add(event)
         db.session.commit()
 
-        message = Message(subject="testemail", recipients=[app.config["MAIL_USERNAME"]], body="body")
+        def format_date(date):
+            months = ['', "Jan", "Feb", "Mar", "Apr", "May",
+                      "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+            return f"{months[date.month]} {date.day}, {date.year}"
+
+        message = Message(
+            subject=f"FEMevents - {form.title.data} on {format_date(form.date.data)}",
+            recipients=[app.config["MAIL_USERNAME"]],
+            html=f"""<p>Hi there!</p>
+
+<p>A new event {form.title.data} has been posted on FEMevents!</p>
+<p>Check it out on <a href="http://127.0.0.1:5000/events">FEMevents</a>!</p>
+
+<p><i>FEMevents Team</i></p>"""
+        )
         await mail.send_message(message)
 
         flash("Event created")
@@ -41,7 +55,8 @@ def event_detail(_id):
     event = Event.query.get_or_404(_id)
 
     def format_date(date):
-        months = ['', "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+        months = ['', "Jan", "Feb", "Mar", "Apr", "May",
+                  "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
         return f"{months[date.month]} {date.day}, {date.year}"
 
     return render_template('events/event_detail.html', event=event, format_date=format_date)
