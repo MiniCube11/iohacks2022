@@ -2,22 +2,6 @@
 
 {% block content %}
 <div class="main">
-    <input class="search" placeholder="Search for an event">
-    <button class="nav-button">Search</button>
-    <a href="{{ url_for('events.add_event') }}"><button class="nav-button">Add Event</button></a>
-    <div class="events">
-        {% for event in events %}
-        <a href="{{ url_for('events.event_detail', _id=event.id) }}">
-            <div class="event-container">
-                <b>{{ event.title }}</b>
-                <div class="event-right">
-                    <p>{{ event.organizer }}</p>
-                    <p>{{ event.event_type }}</p>
-                    <p>{{ format_date(event.date) }}</p>
-                </div>
-            </div>
-        </a>
-        {% endfor %}
-    </div>
+    {% include "main/events_list.html" %}
 </div>
 {% endblock %}

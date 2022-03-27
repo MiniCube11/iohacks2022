@@ -35,6 +35,7 @@
 
 .main {
     margin: 40px var(--margin-side);
+    margin-bottom: 100px;
 }
 
 .main p {
@@ -127,4 +128,19 @@ form textarea {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.promo-container {
+    padding: 190px calc(var(--margin-side) + 80px);
+    margin-bottom: 80px;
+    background-image: url("../img/bg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: aliceblue;
+}
+
+.promo {
+    font-size: 2em;
+    margin-bottom: 30px;
 }

@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="promo-container">
+    <h2 class="promo">Find your next event!</h2>
+    <p>STEM events for people who identify as female or non-binary</p>
+</div>
 <div class="main">
-    <h2>Home</h2>
+    {% include "main/events_list.html" %}
 </div>
 {% endblock %}
